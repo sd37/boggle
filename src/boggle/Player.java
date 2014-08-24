@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.Random;
 import java.util.Set;
 
 /**
@@ -28,7 +29,7 @@ public class Player implements Runnable {
 
         Stage stage = new Stage();
         final TextField txtfield = new TextField();
-        txtfield.setPrefColumnCount(5 * 100);
+        txtfield.setPrefColumnCount(5 * 75);
         Group group = new Group(txtfield);
         Scene scene = new Scene(group);
         stage.setScene(scene);
@@ -42,7 +43,14 @@ public class Player implements Runnable {
         });
 
         stage.setTitle("Player id = " + id);
-        stage.setWidth(5 * 100);
+        stage.setWidth(5 * 75);
+        Random rand = new Random();
+        int max = 1000;
+        int min = 100;
+        int X = rand.nextInt((max - min) + 1) + min;
+        int Y = rand.nextInt((max - min) + 1) + min;
+        stage.setX(X);
+        stage.setY(Y);
         stage.show();
     }
 }
